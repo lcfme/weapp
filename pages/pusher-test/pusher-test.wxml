@@ -1,0 +1,4 @@
+<!--pages/pusher-test/pusher-test.wxml-->
+<view>
+  <live-pusher url="rtmp://108.160.134.168/live/exam_stream" mode="RTC" style="width: 100%; height: 60vh;" autopush bindstatechange="stateChange" binderror="error" />
+</view>

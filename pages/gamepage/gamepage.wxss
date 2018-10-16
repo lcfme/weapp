@@ -1,0 +1,7 @@
+/* pages/gamepage/gamepage.wxss */
+
+.game_bg {
+  width: 100%;
+  min-height: 100vh;
+  background: #F8D927;
+}

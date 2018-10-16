@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view catchtap="inc">
+  <text catchtap="naviTo" data-url="/pages/test/test">Hello World</text> - {{count}} - {{bbb}}
+</view>

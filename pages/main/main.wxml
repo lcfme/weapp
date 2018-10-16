@@ -1,0 +1,10 @@
+<!--pages/main/main.wxml-->
+<view class="main_bg">
+  <view>
+    <view class="title-main">
+      <image class="title-main-world" src="../../assets/img/153961115355428.png"></image>
+    </view>
+    <image class="bg_main" src="../../assets/img/main_bg.png"></image>
+  </view>
+  <button class="btn_auth" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">报名参赛</button>
+</view>
