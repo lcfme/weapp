@@ -87,11 +87,6 @@
 
 .logo-word {
   text-align: center;
-  position: fixed;
-  bottom: 380rpx;
-  left: 50%;
-  width: 750rpx;
-  transform: translate(-50%, -50%);
   color: #fff;
   font-size: 40rpx;
 }

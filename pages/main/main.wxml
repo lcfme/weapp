@@ -3,9 +3,9 @@
   <view class="content">
     <view class="title-main">
       <image src="../../assets/img/logo.png" style="width: 750rpx; height: 246rpx;" />
+      <view wx:if="{{bigGameInfo}}" class="logo-word">本期奖金 ¥<text class="bouns-text">{{bigGameInfo.bonusPool}}</text> 元</view>
     </view>
     <view wx:if="{{bigGameInfo}}" class="big-game-info">
-    <view wx:if="{{bigGameInfo}}" class="logo-word">本期奖金 <text class="bouns-text">{{bigGameInfo.bonusPool}}</text> 元</view>
       <view>
         <view>在线人数</view>
         <view> 10
