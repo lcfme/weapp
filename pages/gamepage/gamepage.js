@@ -33,6 +33,8 @@ Page(connect()({
     lockForAnswer: false,
     option_alias: ['A', 'B', 'C', 'D'],
     otherGiveUpFlag: false,
+    counterNum: 5,
+    countClear: 0,
   },
 
   /**
@@ -47,9 +49,9 @@ Page(connect()({
     }
     this.onWebSocketMessage = this.onWebSocketMessage.bind(this);
     ws.on('message', this.onWebSocketMessage);
-    ws.send({
-      cmd: 'req_play'
-    });
+    this.countClear = setInterval(() => {
+      this.intervalFn();
+    }, 1000);
   },
   onWebSocketMessage(e) {
     try {
@@ -69,9 +71,17 @@ Page(connect()({
           }, 2000);
           break;
         case 'game_start':
+          this.data.counterNum = 3;
+          this.setData({
+            counterNum: this.data.counterNum,
+          });
           this.onGameStart();
           break;
         case 'next_question':
+          this.data.counterNum = 5;
+          this.setData({
+            counterNum: this.data.counterNum,
+          });
           this.onNextQuestion({
             ...msg.question,
             index: msg.index
@@ -128,7 +138,6 @@ Page(connect()({
               }
             });
           } else {
-            debugger;
             this.data.otherGiveUpFlag = true;
             this.setData({
               otherGiveUpFlag: true,
@@ -175,7 +184,9 @@ Page(connect()({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    ws.send({
+      cmd: 'req_play'
+    });
   },
 
   /**
@@ -246,7 +257,14 @@ Page(connect()({
   onReachBottom: function() {
 
   },
-
+  intervalFn() {
+    if (this.data.counterNum !== 0) {
+      this.data.counterNum -= 1;
+    }
+    this.setData({
+      counterNum: this.data.counterNum,
+    });
+  },
   /**
    * 用户点击右上角分享
    */

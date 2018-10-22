@@ -14,12 +14,12 @@
   <view wx:if="{{status === STATUS.PREPARE || status === STATUS.START}}">
     <view wx:if="{{status === STATUS.PREPARE}}">
       <view class="notice-warn">
-        对手已加入房间
+        对手已加入房间 {{counterNum}}
       </view>
     </view>
     <view wx:if="{{status === STATUS.START}}">
       <view class="notice-warn">
-        游戏开始！
+        游戏开始！{{counterNum}}
       </view>
     </view>
     <view class="game-main-scene">

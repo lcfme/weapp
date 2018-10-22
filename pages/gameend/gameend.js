@@ -24,6 +24,11 @@ Page(connect()({
       winerNickName: decodeURIComponent(options.nickName),
       right: options.right
     })
+    const userInfo = wx.getStorageSync('userInfo');
+    this.data.userInfo = userInfo;
+    this.setData({
+      userInfo
+    });
     const ethInfo = wx.getStorageSync('ethInfo');
     console.log('ethInfo: ', ethInfo);
   },

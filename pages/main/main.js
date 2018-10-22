@@ -87,26 +87,26 @@ Page(connect()({
         detail
       } = e;
       if (!/fail/.test(detail.errMsg)) {
+        const userInfo = detail.userInfo;
+        userInfo.uuid = uuid;
+        this.data.userInfo = userInfo;
+        this.store.dispatch({
+          type: EVENT.USER_INFO,
+          payload: userInfo,
+        });
+        this.onGetUserInfo();
         wx.showModal({
           title: '支付',
           content: '一元',
           success: () => {
-            const userInfo = detail.userInfo;
-            userInfo.uuid = uuid;
-            wx.setStorageSync('userInfo', userInfo);
-            this.store.dispatch({
-              type: EVENT.USER_INFO,
-              payload: userInfo,
-            });
-            this.onGetUserInfo();
             if (ws.open) {
               wx.navigateTo({
                 url: '/pages/gamepage/gamepage',
               });
             } else {
               ws.once('open', e => {
-                ws.send({
-                  cmd: 'req_play'
+                wx.navigateTo({
+                  url: '/pages/gamepage/gamepage',
                 });
               });
             }
@@ -132,6 +132,8 @@ Page(connect()({
 
   },
   onGetUserInfo() {
+    const userInfo = this.data.userInfo;
+    wx.setStorageSync('userInfo', userInfo);
     this.registerUserInfo();
     const ethInfo = wx.getStorageSync('ethInfo');
     const queryObj = {
@@ -139,7 +141,7 @@ Page(connect()({
       avatarUrl: this.data.userInfo.avatarUrl,
       nickName: this.data.userInfo.nickName,
     };
-    // let wsUrl = `ws://10.155.24.183:4321?token=${this.data.userInfo.uuid}&avatarUrl=${encodeURIComponent(this.data.userInfo.avatarUrl)}&nickName=${encodeURIComponent(this.data.userInfo.nickName)}`;
+    
     let wsBaseUrl = 'ws://10.155.24.183:4321';
     if (!ethInfo) {
       console.log(wsBaseUrl + '?' + qs.stringify(queryObj));
@@ -149,7 +151,7 @@ Page(connect()({
     } else {
       queryObj.ethAccount = ethInfo.account;
       queryObj.ethPass = ethInfo.password;
-      // wsUrl += `&ethAccount=${encodeURIComponent(ethInfo.account)}&ethPass=${encodeURIComponent(ethInfo.password)}`;
+      
       console.log(wsBaseUrl + '?' + qs.stringify(queryObj));
       ws.connect({
         url: wsBaseUrl + '?' + qs.stringify(queryObj),
