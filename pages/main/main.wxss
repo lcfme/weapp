@@ -3,31 +3,101 @@
 .main_bg {
   width: 100%;
   min-height: 100vh;
-  background: #F8D927;
+  background: #f8f8f8;
+}
+
+.content {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 750rpx;
+  z-index: 99;
 }
 
 .btn_auth {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 180rpx;
   width: 680rpx;
-  background-image: linear-gradient(#31EE5F 5%, #00AC50, #31EE5F 5%);
+  border: 4rpx solid #fff; 
+  background: transparent;
   color: #fff;
-  box-shadow: 2px 2px 2px 2px #676767;
+  z-index: 199;
 }
 
-.bg_main {
-  margin-top: 20rpx;
+.bg_img {
+  z-index: 9;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 750rpx;
-  height: 579rpx;
+  height: 100vh;
+}
+
+.bg_img_img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.restrict_img {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .title-main {
-  padding-top: 60rpx;
-  font-family: '微软雅黑', sans-serif;
-  font-weight: bold;
-  font-size: 64rpx;
+  position: absolute;
+  top: 46%;
+  transform: translateY(-50%);
   text-align: center;
 }
 
 .title-main-world {
   width: 680rpx;
   height: 84rpx;
+}
+
+.bg_mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #00AC50;
+  opacity: 0.67;
+}
+
+.big-game-info {
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  width: 750rpx;
+  bottom: 280rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 40rpx;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.logo-word {
+  text-align: center;
+  position: fixed;
+  bottom: 380rpx;
+  left: 50%;
+  width: 750rpx;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 40rpx;
+}
+
+.bouns-text {
+  display: inline-block;
+  color: #fff;
+  font-size: 72rpx;
 }

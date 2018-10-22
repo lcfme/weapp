@@ -1,0 +1,34 @@
+<!--pages/gameend/gameend.wxml-->
+<view style="min-height: 100vh; background: #f8f8f8;">
+  <view class="bg-win">
+    <view class="win-title">
+      获胜者
+    </view>
+    <view>
+      <image class="bg-win-img" src="../../assets/img/win.png" />
+    </view>
+    <view class="avatar-bg">
+      <image class="avatar-img" src="{{winerAvatarUrlrl}}" />
+    </view>
+    <view class="win-nickname">
+      {{winerNickName}}
+    </view>
+    <view class="win-count">
+      正确数 {{right}}
+    </view>
+  </view>
+
+  <view class="ranklist">
+    <view class="ranklist-item" wx:for="{{rankList}}">
+      <view class="ranklist-avatar">
+        <image style="width: 100%; height: 100%;" src="{{item.avatarUrl}}"></image>
+      </view>
+      <view class="ranklist-nickName">
+        {{item.nickName}}
+      </view>
+      <view class="ranklist-score">
+        {{item.score}}
+      </view>
+    </view>
+  </view>
+</view>

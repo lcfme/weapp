@@ -1,4 +1,74 @@
 <!--pages/gamepage/gamepage.wxml-->
 <view class="game_bg">
-  
+  <view wx:if="{{status === STATUS.WAIT}}">
+    <view class="waiting_peer">
+      <image style="width: 200rpx; height: 200rpx;" src="../../assets/img/dice.svg"></image>
+      <view>
+        <dotdotdot text="寻找对手" />
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{status === STATUS.END}}">
+    <view class="notice-warn" style="background: #FB4A4A;">比赛已结束</view>
+  </view>
+  <view wx:if="{{status === STATUS.PREPARE || status === STATUS.START}}">
+    <view wx:if="{{status === STATUS.PREPARE}}">
+      <view class="notice-warn">
+        对手已加入房间
+      </view>
+    </view>
+    <view wx:if="{{status === STATUS.START}}">
+      <view class="notice-warn">
+        游戏开始！
+      </view>
+    </view>
+    <view class="game-main-scene">
+      <view class="video-area">
+        <view class="your-side">
+          <view>
+            <live-pusher url="{{rtmpUrl[0]}}" autopush beauty="10" whiteness="10" aspect="3:4" style="width: 330rpx; height: 440rpx;" />
+          </view>
+          <view class="profile_info">
+            <view class="avatar">
+              <view class="avatar-wrap">
+                <image class="avatar-image" src="{{userInfo.avatarUrl}}" />
+              </view>
+            </view>
+            <view class="nickname">
+              {{userInfo.nickName}}
+            </view>
+          </view>
+        </view>
+        <!-- 对手 -->
+        <view class="your-side">
+          <view>
+            <live-player src="{{rtmpUrl[1]}}" mode="RTC" autoplay style="width: 330rpx; height: 440rpx;" />
+          </view>
+          <view class="profile_info">
+            <view class="avatar">
+              <view class="avatar-wrap">
+                <image class="avatar-image" src="{{otherAvatarUrl}}" />
+              </view>
+            </view>
+            <view class="nickname">
+              {{otherNickname}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view>
+        <view wx:if="{{thisQuestion}}" class="exam-no">
+          第{{thisQuestion.index + 1}}题
+        </view>
+        <view class="question-content">
+          {{thisQuestion.content}}
+        </view>
+        <view>
+          <view class="question-option" wx:for="{{thisQuestion.options}}" wx:key="{{index}}" catchtap="onAnswer" data-selected="{{index}}" style="background: {{thisQuestion.optionBgColor[index]}};">
+            {{option_alias[index]}}. {{item}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

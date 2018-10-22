@@ -1,0 +1,96 @@
+/* pages/gameend/gameend.wxss */
+
+.bg-win {
+  position: relative;
+  width: 750rpx;
+  height: 600rpx;
+  background-color: #F8D927;
+  margin-bottom: 10rpx;
+}
+
+.bg-win-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 680rpx;
+  height: 573rpx;
+}
+
+.avatar-bg {
+  position: absolute;
+  top: 240rpx;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 230rpx;
+  height: 230rpx;
+  background: #eee;
+  border-radius: 10rpx;
+}
+
+.avatar-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+}
+
+.win-nickname {
+  font-size: 32rpx;
+  color: #fff;
+  position: absolute;
+  top: 400rpx;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.win-count {
+  font-size: 28rpx;
+  color: #fff;
+  position: absolute;
+  top: 450rpx;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.win-title {
+  font-size: 40rpx;
+  color: #fff;
+  position: absolute;
+  top: 80rpx;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+.ranklist-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 10rpx 20rpx;
+}
+.ranklist-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+
+.ranklist-nickName {
+  flex: 1 1 auto;
+  line-height: 80rpx;
+  color: orange;
+  padding-left: 20rpx;
+}
+
+.ranklist-score {
+  height: 80rpx;
+  line-height: 80rpx;
+  color: orange;
+  width: 80rpx;
+  text-align: center;
+}

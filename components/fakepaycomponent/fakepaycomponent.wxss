@@ -1,0 +1,11 @@
+/* components/fakepaycomponent/fakepaycomponent.wxss */
+
+.wrap {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 680rpx;
+  height: 300rpx;
+  z-index: 999rpx;
+}

@@ -1,0 +1,4 @@
+<!--components/fakepaycomponent/fakepaycomponent.wxml-->
+<view class="wrap">
+  <input class="acount" type="number" focus placeholder="支付比赛筹码" />
+</view>

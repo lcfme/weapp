@@ -1,0 +1,14 @@
+<!--components/ranklist/ranklist.wxml-->
+<view class="ranklist">
+  <view class="ranklist-item" wx:for="{{rankList}}">
+    <view class="ranklist-avatar">
+      <image style="width: 100%; height: 100%;" src="{{item.avatarUrl}}"></image>
+    </view>
+    <view class="ranklist-nickName">
+      {{item.nickName}}
+    </view>
+    <view class="ranklist-score">
+      {{item.score}}
+    </view>
+  </view>
+</view>

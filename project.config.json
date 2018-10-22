@@ -41,7 +41,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -64,7 +64,14 @@
 				{
 					"id": -1,
 					"name": "游戏页",
-					"pathName": "pages/gamepage/gamepage"
+					"pathName": "pages/gamepage/gamepage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "结束页面",
+					"pathName": "pages/gameend/gameend",
+					"query": "userId=14cec048-3842-45db-839a-94ccb8a7cdcf&avatarUrl=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FDYAIOgq83eqN4neTfzJ7aMRib5icV0rmibYfb32vMPoMM39k3whObMubZLjc2F8ZBLIgJyHSskJpRYLoF3eRXsFVw%2F132&nickName=炒饭哥哥&right=1"
 				}
 			]
 		}

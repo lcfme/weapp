@@ -1,0 +1,2 @@
+<!--components/dotdotdot/dotdotdot.wxml-->
+<text>{{text}}{{__postFix}}</text>

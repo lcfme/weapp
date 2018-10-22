@@ -4,11 +4,13 @@
     "pages/test/test",
     "pages/pusher-test/pusher-test",
     "pages/player-test/player-test",
-    "pages/gamepage/gamepage"
+    "pages/gamepage/gamepage",
+    "pages/gameend/gameend",
+    "pages/mypage/mypage"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#f8f8f8",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   }

@@ -1,10 +1,31 @@
 <!--pages/main/main.wxml-->
 <view class="main_bg">
-  <view>
+  <view class="content">
     <view class="title-main">
-      <image class="title-main-world" src="../../assets/img/153961115355428.png"></image>
+      <image src="../../assets/img/logo.png" style="width: 750rpx; height: 246rpx;" />
     </view>
-    <image class="bg_main" src="../../assets/img/main_bg.png"></image>
+    <view wx:if="{{bigGameInfo}}" class="big-game-info">
+    <view wx:if="{{bigGameInfo}}" class="logo-word">本期奖金 <text class="bouns-text">{{bigGameInfo.bonusPool}}</text> 元</view>
+      <view>
+        <view>在线人数</view>
+        <view> 10
+        </view>
+      </view>
+      <view>
+        <view>开始日期</view>
+        <view>{{bigGameInfo.beginTime}}</view>
+      </view>
+      <view>
+        <view>结束日期</view>
+        <view>{{bigGameInfo.endTime}}</view>
+      </view>
+    </view>
+    <button class="btn_auth" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">{{main_btn_text}}</button>
   </view>
-  <button class="btn_auth" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">报名参赛</button>
+  <view class="bg_img">
+    <view class="restrict_img">
+      <image class="bg_img_img" mode="aspectFill" src="{{currentBgImgUrl[currentBgImgIndex]}}" />
+    </view>
+    <view class="bg_mask" />
+  </view>
 </view>
