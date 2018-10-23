@@ -94,7 +94,7 @@ Page(connect()({
           type: EVENT.USER_INFO,
           payload: userInfo,
         });
-        this.onGetUserInfo();
+        this.onGetUserInfo(userInfo);
         wx.showModal({
           title: '支付',
           content: '一元',
