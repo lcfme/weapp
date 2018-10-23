@@ -194,6 +194,15 @@ Page(connect()({
     ws.send({
       cmd: 'req_play'
     });
+    let userInfo;
+    if (this.data.userInfo && this.data.userInfo.nickName) {
+      userInfo = this.data.userInfo;
+    } else {
+      userInfo = wx.getStorageSync('userInfo');
+    }
+    this.setData({
+      userInfo,
+    });
   },
 
   /**
