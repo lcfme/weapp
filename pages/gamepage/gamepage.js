@@ -50,6 +50,9 @@ Page(connect()({
     }
     this.onWebSocketMessage = this.onWebSocketMessage.bind(this);
     ws.on('message', this.onWebSocketMessage);
+    ws.send({
+      cmd: 'req_play'
+    });
     this.countClear = setInterval(() => {
       this.intervalFn();
     }, 1000);
@@ -191,9 +194,6 @@ Page(connect()({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    ws.send({
-      cmd: 'req_play'
-    });
     let userInfo;
     if (this.data.userInfo && this.data.userInfo.nickName) {
       userInfo = this.data.userInfo;
