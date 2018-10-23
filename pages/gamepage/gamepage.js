@@ -6,6 +6,7 @@ import {
   EVENT
 } from '../../store/store.js';
 import ws from '../../utils/ws-server.js';
+import qs from '../../lib/qs.js';
 
 function randS() {
   return Math.random().toString(16).substr(2);
@@ -104,9 +105,15 @@ Page(connect()({
               status: STATUS.END,
             });
             if (this.data.winer) {
+              const urlInfo = {
+                userId: this.data.winer.userId,
+                avatarUrl: this.data.winer.avatarUrl,
+                nickName: this.data.winer.nickName,
+                right: this.data.winer.right,
+              }
               if (!this.data.otherGiveUpFlag) {
                 wx.redirectTo({
-                  url: `/pages/gameend/gameend?userId=${this.data.winer.userId}&avatarUrl=${encodeURIComponent(this.data.winer.avatarUrl)}&nickName=${this.data.winer.nickName}&right=${this.data.winer.right}`,
+                  url: '/pages/gameend/gameend?' + qs.stringify(urlInfo),
                 });
               } else {
                 wx.showModal({
@@ -114,7 +121,7 @@ Page(connect()({
                   showCancel: false,
                   complete: () => {
                     wx.redirectTo({
-                      url: `/pages/gameend/gameend?userId=${this.data.winer.userId}&avatarUrl=${encodeURIComponent(this.data.winer.avatarUrl)}&nickName=${encodeURIComponent(this.data.winer.nickName)}&right=${this.data.winer.right}`,
+                      url: '/pages/gameend/gameend?' + qs.stringify(urlInfo),
                     });
                   }
                 });
