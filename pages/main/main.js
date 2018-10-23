@@ -143,6 +143,8 @@ Page(connect()({
     };
     
     let wsBaseUrl = 'ws://10.155.24.183:4321';
+    // let wsBaseUrl = 'ws://localhost:4321';
+
     if (!ethInfo) {
       console.log(wsBaseUrl + '?' + qs.stringify(queryObj));
       ws.connect({
